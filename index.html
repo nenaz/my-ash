@@ -1,0 +1,184 @@
+﻿<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+		<meta http-equiv="Content-Security-Policy" content="default-src 'self' https://cdn.rawgit.com:* data: gap: https://ssl.gstatic.com 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; connect-src https://mob.nomos.ru:*">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <link rel="stylesheet" type="text/css" href="css/main.css">
+        <title>Hello World</title>
+    </head>
+    <body>
+        <!--div class="app">
+            <h1>Apache Cordova</h1>
+            <div id="deviceready" class="blink">
+                <p class="event listening">Connecting to Device</p>
+                <p class="event received">Device is Ready</p>
+            </div>
+        </div-->
+		<div class="topMenu">
+			<div class="topMenuButton">
+				<div class="classMenu"></div>
+				<div class="classMenu"></div>
+				<div class="classMenu"></div>
+			</div>
+		</div>
+		<div class="leftMenu">
+			<div class="menu-item">
+				<span>Назад</span>
+			</div>
+			<div class="menu-item">
+				<span>Обновить</span>
+			</div>
+			<div class="menu-item">
+				<span>Ручной ввод</span>
+			</div>
+			<div class="menu-item">
+				<span>Очистить</span>
+			</div>
+			<div class="menu-item">
+				<span>Разлогин</span>
+			</div>
+			<div class="menu-item" action="app-exit">
+				<span>Выход</span>
+			</div>
+		</div>
+		<div class="menuMask visible"></div>
+		<div class="allBlocks">
+			<div class="loginBlock blocks">
+				<input placeholder="login" id="login"/>
+				<input placeholder="password" id="password" type="password"/>
+				<!--div class="saveLPBlock">
+					<input type="checkbox" action="saveLP"/>
+					<span>Save login & password</span>
+				</div>
+				<button id="goToBank">Sign in</button-->
+			</div>
+			<div class="purseBlock blocks">
+				<!--button id="myСash">my cash</button-->
+				<div class="purseBalance">
+					<!--span  id="balance">0</span-->
+					<input id="manualInput" value="0"/>
+				</div>
+				<div class="replButtons">
+					<div>
+						<div action="10" type="repl-but">10</div>
+						<div action="50" type="repl-but">50</div>
+						<div action="100" type="repl-but">100</div>
+					</div>
+					<div>
+						<div action="500" type="repl-but">500</div>
+						<div action="1000" type="repl-but">1000</div>
+						<div action="5000" type="repl-but">5000</div>
+					</div>
+				</div>
+				<div class="categoryBlock">
+					<ul>
+						<li action="1">
+							<div class="customButton">
+								<span>На еду</span>
+							</div>
+						</li>
+						<li action="2">
+							<div class="customButton">
+								<span>На шмотки</span>
+							</div>
+						</li>
+						<li action="3">
+							<div class="customButton">
+								<span>В долг</span>
+							</div>
+						</li>
+						<li action="4">
+							<div class="customButton">
+								<span>На авто</span>
+							</div>
+						</li>
+						<li action="5">
+							<div class="customButton">
+								<span>На отдых</span>
+							</div>
+						</li>
+						<li action="6">
+							<div class="customButton">
+								<span>Жене</span>
+							</div>
+						</li>
+						<li action="7">
+							<div class="customButton">
+								<span>Детям</span>
+							</div>
+						</li>
+						<li action="8">
+							<div class="customButton">
+								<span>На собаку</span>
+							</div>
+						</li>
+						<li action="9">
+							<div class="customButton">
+								<span>Вернули долг</span>
+							</div>
+						</li>
+						<li action="10">
+							<div class="customButton">
+								<span>Находка</span>
+							</div>
+						</li>
+						<li action="11">
+							<div class="customButton">
+								<span>Подарили</span>
+							</div>
+						</li>
+					</ul>
+					
+				</div>
+				<button class="saveCosts">save</button>
+				<div class="loadMask visible">
+					<div class="loadAnimate"></div>
+				</div>
+			</div>
+		</div>
+		<div id="message-box" class="invisible messageBoxHide">
+			<span>Message</span>
+		</div>
+		
+		
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/tap.min.js"></script>
+        <script type="text/javascript" src="js/jquery-3.1.0.js"></script>
+        <script type="text/javascript" src="js/ocrad.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/utils.js"></script>
+        <script type="text/javascript" src="js/database.js"></script>
+        <script type="text/javascript" src="js/config.js"></script>
+        <script type="text/javascript" src="js/dataProvider.js"></script>
+    </body>
+</html>

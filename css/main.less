@@ -1,0 +1,285 @@
+html, body{
+	width: 100%
+}
+#login, #password, #goToBank, #myСash {
+	display: inline-block;
+	font-size: 25px;
+	height: 40px;
+	width: 100%;
+	text-align: center;
+}
+.visible{
+	display: block;
+}
+.invisible{
+	display: none;	
+}
+.bodyNoScroll{
+	overflow: hidden;
+}
+
+.customButton{
+	background: coral;
+    width: 90%;
+    height: 35px;
+    border-radius: 10px;
+    margin: 0 auto;
+    text-align: center;
+    border: 2px solid white;
+	font-size: 19px;
+    line-height: 2;
+}
+
+.activeButton{
+	background: cadetblue;
+}
+
+.saveCosts{
+	font-size: 25px;
+	width: 100%;
+}
+/* ++ style from animation ++ */
+	
+.allBlocks{
+	/*-webkit-transform: translateY(-168px);*/
+}
+/*
+.heightHIde {
+	-webkit-animation: menuToggleAnimationHide 0.5s 1 forwards;
+	animation: menuToggleAnimationHide 0.5s 1 forwards;
+}*/
+/*
+@-webkit-keyframes menuToggleAnimationHide{
+	0%   { height: 100%; }
+	100% { height: 0%; }
+}
+*/
+.toggleMenuShow{
+	transform: translate3d(100%, 0, 0);
+	-webkit-transform: translate3d(100%, 0, 0);
+}
+/*
+@-webkit-keyframes menuToggleAnimationShow{
+	0%   { left: -100%; }
+	100% { left: 0%; }
+}
+.toggleMenuHide{
+	-webkit-animation: menuToggleAnimationHide 0.5s 1 forwards;
+	animation: menuToggleAnimationHide 0.5s 1 forwards;
+}
+
+@-webkit-keyframes menuToggleAnimationHide{
+	0%   { left: 0px; }
+	100% { left: -100%; }
+}
+
+.loadingCircle{
+	-webkit-animation: maskLoadingAnim 1s linear infinite;
+	animation: maskLoadingAnim 1s linear infinite;
+}
+
+@-webkit-keyframes maskLoadingAnim{
+	0%   { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+}
+*/
+/* -- style from animation -- */
+
+/* ++ style from content mask ++ */
+.loadMask{
+	position: absolute;
+    width: 100%;
+    height: 100%;
+    background: black;
+    opacity: .5;
+	top: 0;
+}
+.loadAnimate{
+	border: 9px solid yellow;
+	width: 55px;
+	height: 55px;
+	border-radius: 50%;
+	display: inline-block;
+	display: none;
+	border-right-color: #a08888;
+	position: relative;
+}
+/* -- style from content mask -- */
+
+/* ++ style from BLOCK ++ */
+.blocks{
+	background: darkgray;
+    border-bottom: 1px solid;
+    border-color: brown;
+}
+
+.purseBlock, .allBlocks{
+	width: 100%;
+}
+
+.loginBlock{
+	-webkit-transition: all 1.5s linear;
+	transition: all 1.5s linear;
+	margin: 10px;
+	border: 0px solid;
+	background: white;
+	width: 94%;
+	height: 85px;
+	input{
+		border: none;
+		outline-width: 0;
+	}
+}
+.heightHide{
+	height: 0px;
+	margin-bottom: 0px;
+}
+
+.saveLPBlock{
+	display: table;
+    width: 100%;
+	input{
+		height: 30px;
+		width: 30px;
+		display: table-cell;
+	}
+	span{
+		font-size: 20px;
+		display: table-cell;
+		width: 100%;
+		text-align: center;
+		vertical-align: middle;
+	}
+}
+
+.purseBlock{
+	position: relative;
+	.purseBalance{
+		display: table;
+		width: 100%;
+		span{
+			display: table-cell;
+			width: 50%;
+			font-size: 25px;
+			text-align: center;
+		}
+		input{
+			display: table-cell;
+			font-size: 25px;
+			width: 98%;
+			text-align: center;
+			border: 0px;
+		}
+	}
+	.replButtons{
+		div{
+			display: table;
+			width: 100%;
+			/*margin: 0 5%;*/
+			div{
+				display: table-cell;
+				width: 33%;
+				height: 40px;
+				font-size: 20px;
+				text-align: center;
+				vertical-align: middle;
+				border: 1px solid brown;
+				border-radius: 5px;
+				background: aqua;
+			}
+		}
+	}
+}
+
+.cameraImg{
+	img{
+		width: 200px;
+		height: 200px;
+	}
+}
+
+.categoryBlock{
+	ul{
+		padding: 0px;
+		li{
+			list-style-type: none;
+			button{
+				width: 100%;
+				height: 30px;
+			}
+		}
+	}
+}
+/* -- style from BLOCK -- */
+
+/* ++ style from top menu ++ */
+.topMenu{
+	width: 100%;
+    height: 50px;
+    background: white;
+    /*box-shadow: 0px 5px black;*/
+    margin-bottom: 10px;
+	.topMenuButton{
+		padding: 7px;
+		/*background-image: url(../img/strelka.png);*/
+		width: 30px;
+		height: 20px;
+		background-size: cover;
+		background-repeat: no-repeat;
+		.classMenu{
+			background: black;
+			height: 5px;
+			margin-bottom: 3px;
+			width: 100%;
+		}
+	}
+}
+
+.leftMenu{
+	-webkit-transition: .5s linear;
+	transition: .5s linear;
+	left: -100%;
+	width: 100%;
+    height: 100%;
+    background: black;
+    position: absolute;
+    color: white;
+    font-size: 25px;
+	/*display: table;*/
+    text-align: center;
+    z-index: 10;
+	.menu-item{
+		border: 3px solid white;
+		border-radius: 10px;
+		margin: 5px;
+		span{
+			display: inline-block;
+			width: 100%;
+			height: 40px;
+			vertical-align: middle;
+			line-height: 40px;
+		}
+	}
+}
+/* -- style from top menu -- */
+
+/* ++ style from message-box ++ */
+#message-box{
+	width: 80%;
+    height: 20%;
+    background: aqua;
+    position: absolute;
+    top: 50%;
+    margin-left: 10%;
+    margin-right: 10%;
+	-webkit-transition: all .5s linear;
+	transition: all .5s linear;
+}
+
+.messageBoxHide{
+	opacity: 0;
+}
+.messageBoxShow{
+	opacity: 1;
+}
+/* -- style from message-box -- */
