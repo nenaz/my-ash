@@ -29,20 +29,16 @@ var app = {
     // Bind any events that are required on startup. Common events are:
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
-		// app.Utils.loadingElemPos();
         document.addEventListener('deviceready', this.onDeviceReady, false);
-        // document.getElementById('goToBank').addEventListener('click', this.doLogin, false);
         document.getElementById('password').addEventListener('keyup', this.keyLogin, false);
-        document.getElementById('myСash').addEventListener('click', this.getMyMoney, false);
-        // document.getElementById('getImgButton').addEventListener('click', this.getCameraImage, false);
-        // document.getElementById('myСash').addEventListener('click', this.getMyMoney, false);
 		$('.leftMenu ').on('tap', this.toggleLeftMenu);
 		$('button[type="repl-but"]').on('click', this.replAmount);
 		$('.categoryBlock .customButton').on('click', this.selectCategory);
 		$('.saveCosts').on('click', this.saveCosts);
 		$('.topMenuButton').on('click', this.toggleLeftMenu);
 		$('[action="app-exit"]').on('click', this.exitApp);
-
+		$('.replButtons div[type="repl-but"]').on('click', this.replAmount);
+		$('.clearInput').on('click', this.clearAmount);
     },
 
     // deviceready Event Handler
@@ -85,7 +81,7 @@ var app = {
 			alert('введите логин');
 		}
 		app.Utils.maskToggle(true);
-						$('.loadAnimate').addClass('visible');
+		$('.loadAnimate').addClass('visible');
 		var deferred = $.Deferred();
 		$.when(app.Data.doLogin({
 			username: login,
@@ -146,8 +142,15 @@ var app = {
 	},
 	
 	replAmount: function (e) {
-		var amount = parseInt(document.getElementById('manualInput').value) + parseInt($(e.target).attr('action'));
+		var startAmount = parseInt(document.getElementById('manualInput').value),
+			amount;
+		startAmount = (isNaN(startAmount)) ? 0 : startAmount;
+		amount = startAmount + parseInt($(e.target).attr('action'));
 		document.getElementById('manualInput').value = amount;
+	},
+	
+	clearAmount: function () {
+		$('#manualInput')[0].value = '';
 	},
 	
 	selectCategory: function (e) {

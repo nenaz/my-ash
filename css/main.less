@@ -156,19 +156,46 @@ html, body{
 	position: relative;
 	.purseBalance{
 		display: table;
-		width: 100%;
+		width: 95%;
+		background: coral;
+		padding: 0 10px;
+		height: 140px;
+		font-size: 0;
 		span{
-			display: table-cell;
-			width: 50%;
-			font-size: 25px;
+			display: inline-block;
+			height: 50%;
+			padding: 0;
+			margin: 0;
+			width: 100%;
+			font-size: 40px;
 			text-align: center;
+			line-height: 70px;
+			color: antiquewhite;
 		}
-		input{
-			display: table-cell;
-			font-size: 25px;
-			width: 98%;
-			text-align: center;
-			border: 0px;
+		::-webkit-input-placeholder {
+			color:#c0392b;
+		}
+		.customInput{
+			display: table;
+			height: 70px;
+			input{
+				display: table-cell;
+				font-size: 40px;
+				width: 100%;
+				text-align: right;
+				border: 0;
+				outline: none;
+				height: 100%;
+				background: coral;
+				padding: 0;
+			}
+			.clearInput{
+				display: table-cell;
+				width: 10%;
+				font-size: 20px;
+				color: #c0392b;
+				text-align: right;
+			}
 		}
 	}
 	.replButtons{
