@@ -37,19 +37,21 @@
 		},
 		
 		this.maskToggle = function (value) {
-			var elem,
-				loadEl;
-			if (value !== undefined) {
-				elem = $('.loadMask'),
-				loadEl = $('.loadAnimate');
-				if (value) {
-					elem.addClass('visible');
-					loadEl.addClass('loadingCircle');
-					elem.removeClass('invisible');
+			var elem = document.getElementsByClassName('loadMask')[0],
+				loadEl = document.getElementsByClassName('loadAnimate')[0];
+			this.toggleClass(elem, 'visible');
+			this.toggleClass(elem, 'invisible');
+			this.toggleClass(loadEl, 'loadingCircle');
+			this.toggleClass(loadEl, 'visible');
+			this.toggleClass(loadEl, 'invisible');
+		},
+		
+		this.toggleClass = function (elem, className) {
+			if (elem && className) {
+				if (elem.classList.contains(className)) {
+					elem.classList.remove(className);
 				} else {
-					elem.removeClass('visible');
-					loadEl.removeClass('loadingCircle');
-					elem.addClass('invisible');
+					elem.classList.add(className);
 				}
 			}
 		},

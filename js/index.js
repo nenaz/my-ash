@@ -24,6 +24,10 @@ var app = {
 		$('.loginBlock').height();
 		// app.Utils.loadingElemPos();
     },
+	
+	elem: {
+		loginBlock: '.loginBlock'
+	},
     // Bind Event Listeners
     //
     // Bind any events that are required on startup. Common events are:
@@ -37,6 +41,7 @@ var app = {
 		$('.saveCosts').on('click', this.saveCosts);
 		$('.topMenuButton').on('click', this.toggleLeftMenu);
 		$('[action="app-exit"]').on('click', this.exitApp);
+		$('[action="statement"]').on('click', this.statementCreate);
 		$('.replButtons div[type="repl-but"]').on('click', this.replAmount);
 		$('.clearInput').on('click', this.clearAmount);
     },
@@ -66,7 +71,7 @@ var app = {
 
 	keyLogin: function (e) {
 		if (e.target.value.length === 4) {
-			$('.loginBlock').addClass('heightHide');
+			app.Utils.maskToggle(true);
 			$(e.target).blur();
 			app.doLogin();
 		}
@@ -80,8 +85,6 @@ var app = {
 		if (!login) {
 			alert('введите логин');
 		}
-		app.Utils.maskToggle(true);
-		$('.loadAnimate').addClass('visible');
 		var deferred = $.Deferred();
 		$.when(app.Data.doLogin({
 			username: login,
@@ -90,9 +93,10 @@ var app = {
 		})).done(function (data) {
 			if (data.personId) {
 				app.Utils.setStorage('myLogin', login);
-				// $('.purseBlock').addClass('heightHIde');
+				app.isLogin = true;
 				setTimeout(function() {
-					$('.loginBlock').addClass('invisible');
+					app.Utils.toggleClass($('.loginBlock')[0], 'invisible');
+					app.Utils.toggleClass($('.purseBlock ')[0], 'invisible');
 					app.Utils.maskToggle(false);
 					app.getMyMoney();
 				}, 1500);
@@ -186,22 +190,20 @@ var app = {
 		alert('Failed because: ' + message);
 	},
 	
-	toggleLeftMenu: function (e) {
-		var classList = document.getElementsByClassName('leftMenu')[0].classList;
-		if (classList.contains('toggleMenuShow')) {
-			$('.leftMenu').removeClass('toggleMenuShow');
-			$('body').removeClass('bodyNoScroll');
-		} else {
-			$('body').addClass('bodyNoScroll');
-			$('.leftMenu').addClass('toggleMenuShow');
-		}
+	toggleLeftMenu: function () {
+		app.Utils.toggleClass($('.leftMenu')[0], 'toggleMenuShow');
+		app.Utils.toggleClass($('body')[0], 'bodyNoScroll');
 	},
 	
 	exitApp: function (e) {
 		e.preventDefault();
 		e.stopPropagation();
 		navigator.app.exitApp();
-	}
+	},
+	
+	statementCreate: function (e) {
+		app.DB.selectDB();
+	} 
 };
 
 app.initialize();

@@ -28,18 +28,18 @@
 		</div>
 		<div class="leftMenu">
 			<div class="menu-item">
-				<span>Назад</span>
+				<span>Скрыть</span>
 			</div>
-			<div class="menu-item">
+			<div class="menu-item disabled-item">
 				<span>Обновить</span>
 			</div>
-			<div class="menu-item">
-				<span>Ручной ввод</span>
+			<div class="menu-item disabled-item" action="statement">
+				<span>Отчет</span>
 			</div>
-			<div class="menu-item">
+			<div class="menu-item disabled-item">
 				<span>Очистить</span>
 			</div>
-			<div class="menu-item">
+			<div class="menu-item disabled-item">
 				<span>Разлогин</span>
 			</div>
 			<div class="menu-item" action="app-exit">
@@ -49,15 +49,33 @@
 		<div class="menuMask visible"></div>
 		<div class="allBlocks">
 			<div class="loginBlock blocks">
-				<input placeholder="login" id="login"/>
-				<input placeholder="password" id="password" type="password"/>
+				<div class="custom-input">
+					<div class="cst-input">
+						<input placeholder="login" id="login"/>
+					</div>
+					<div class="right-item">
+						<span>X</span>
+					</div>
+				</div>
+				<div class="custom-input">
+					<div class="cst-input">
+						<input placeholder="password" id="password" type="password"/>
+					</div>
+					<div class="right-item">
+						<span>X</span>
+					</div>
+				</div>
 			</div>
-			<div class="purseBlock blocks">
+			<div class="purseBlock blocks invisible">
 				<div class="purseBalance">
 					<span  id="balance" >Текущий баланс</span>
-					<div class="customInput">
-						<input id="manualInput" placeholder="0" type="number"/>
-						<div class="clearInput">X</div>
+					<div class="custom-input">
+						<div class="cst-input">
+							<input id="manualInput" placeholder="0" type="number"/>
+						</div>
+						<div class="right-item clearInput">
+							<span>X</span>
+						</div>
 					</div>
 				</div>
 				<div class="replButtons">
@@ -133,16 +151,16 @@
 					
 				</div>
 				<button class="saveCosts">save</button>
-				<div class="loadMask visible">
-					<div class="loadAnimate"></div>
-				</div>
+				
 			</div>
 		</div>
 		<div id="message-box" class="invisible messageBoxHide">
 			<span>Message</span>
 		</div>
 		
-		
+		<div class="loadMask invisible">
+			<div class="loadAnimate invisible"></div>
+		</div>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/tap.min.js"></script>
         <script type="text/javascript" src="js/jquery-3.1.0.js"></script>
